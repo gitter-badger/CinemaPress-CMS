@@ -63,6 +63,8 @@ echo '--------nginx--------'
 echo '---------------------'
 rm -rf /etc/nginx/conf.d/rewrite.conf
 ln -s /home/${USER}/config/rewrite.conf /etc/nginx/conf.d/rewrite.conf
+rm -rf /etc/nginx/conf.d/upstream.conf
+ln -s /home/${USER}/config/upstream.conf /etc/nginx/conf.d/upstream.conf
 rm -rf /etc/nginx/conf.d/${USER}.conf
 ln -s /home/${USER}/config/nginx.conf /etc/nginx/conf.d/${USER}.conf
 sed -i "s/domain.tld/${DOMAIN}/g" /home/${USER}/config/nginx.conf
