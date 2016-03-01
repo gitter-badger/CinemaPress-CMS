@@ -3,9 +3,18 @@
   "version": "0.1.1",
   "description": "CinamePress Content Management System.",
   "license": "MIT",
+  "author": "Surinam <extensionsapp@gmail.com>",
   "scripts": {
     "start": "node app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CinemaPress/CinemaPress-CMS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CinemaPress/CinemaPress-CMS/issues"
+  },
+  "homepage": "https://github.com/CinemaPress/CinemaPress-CMS",
   "dependencies": {
     "body-parser": "latest",
     "cookie-parser": "latest",
