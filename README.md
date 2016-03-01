@@ -3,7 +3,6 @@
 
 ## Установка:
 ```
-git clone https://github.com/CinemaPress/CinemaPress-CMS.git
-cd CinemaPress-CMS
-sh install.sh
+git clone https://github.com/CinemaPress/CinemaPress-CMS.git ./cms
+cd ./cms && sh install.sh
 ```

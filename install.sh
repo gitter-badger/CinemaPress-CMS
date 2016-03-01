@@ -69,6 +69,13 @@ sed -i "s/user  nginx;/user  www-data;/g" /etc/nginx/nginx.conf
 sed -i "s/http {/http { server_names_hash_bucket_size 64;/g" /etc/nginx/nginx.conf
 echo 'OK'
 echo '---------------------'
+echo '-------sphinx--------'
+echo '---------------------'
+sed -i "s/username/${USER}/g" /home/${USER}/config/sphinx.conf
+rm -rf /etc/sphinxsearch/sphinx.conf
+ln -s /home/${USER}/config/sphinx.conf /etc/sphinxsearch/sphinx.conf
+echo 'OK'
+echo '---------------------'
 echo '------proftpd--------'
 echo '---------------------'
 echo 'AuthUserFile    /etc/proftpd/ftpd.passwd' >> /etc/proftpd/proftpd.conf
