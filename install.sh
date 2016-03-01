@@ -69,8 +69,8 @@ rm -rf /etc/nginx/conf.d/${USER}.conf
 ln -s /home/${USER}/config/nginx.conf /etc/nginx/conf.d/${USER}.conf
 sed -i "s/example.com/${DOMAIN}/g" /home/${USER}/config/nginx.conf
 sed -i "s/username/${USER}/g" /home/${USER}/config/nginx.conf
-sed -i "s/user  nginx;/user  www-data;/g" /etc/nginx/conf.d/${USER}.conf
-sed -i "s/server_names_hash_bucket_size 64;//g" /etc/nginx/conf.d/${USER}.conf
+sed -i "s/user  nginx;/user  www-data;/g" /etc/nginx/nginx.conf
+sed -i "s/server_names_hash_bucket_size 64;//g" /etc/nginx/nginx.conf
 sed -i "s/http {/http {\n    server_names_hash_bucket_size 64;/g" /etc/nginx/nginx.conf
 echo 'OK'
 echo '---------------------'
@@ -112,5 +112,6 @@ cd /home/${USER}/
 npm install
 npm install forever -g
 npm install nodemon -g
+indexer --all || indexer --all --rotate
 echo 'OK'
 echo '~# reboot'
