@@ -61,19 +61,21 @@ echo 'OK'
 echo '---------------------'
 echo '--------nginx--------'
 echo '---------------------'
+rm -rf /etc/nginx/conf.d/rewrite.conf
 ln -s /home/${USER}/config/rewrite.conf /etc/nginx/conf.d/rewrite.conf
-ln -s /home/${USER}/config/nginx.conf /etc/nginx/conf.d/nginx.conf
+rm -rf /etc/nginx/conf.d/rewrite.conf
+ln -s /home/${USER}/config/nginx.conf /etc/nginx/conf.d/${USER}.conf
 sed -i "s/domain.tld/${DOMAIN}/g" /home/${USER}/config/nginx.conf
 sed -i "s/username/${USER}/g" /home/${USER}/config/nginx.conf
-sed -i "s/user  nginx;/user  www-data;/g" /etc/nginx/nginx.conf
-sed -i "s/http {/http { server_names_hash_bucket_size 64;/g" /etc/nginx/nginx.conf
+sed -i "s/user  nginx;/user  www-data;/g" /etc/nginx/${USER}.conf
+sed -i "s/http {/http { server_names_hash_bucket_size 64;/g" /etc/nginx/${USER}.conf
 echo 'OK'
 echo '---------------------'
 echo '-------sphinx--------'
 echo '---------------------'
-sed -i "s/username/${USER}/g" /home/${USER}/config/sphinx.conf
 rm -rf /etc/sphinxsearch/sphinx.conf
 ln -s /home/${USER}/config/sphinx.conf /etc/sphinxsearch/sphinx.conf
+sed -i "s/username/${USER}/g" /home/${USER}/config/sphinx.conf
 echo 'OK'
 echo '---------------------'
 echo '------proftpd--------'
