@@ -1,6 +1,6 @@
 module.exports = {
-    "domain": "",
-    "email": "",
+    "domain": "example.com",
+    "email": "support@example.com",
     "disqus": "films-online",
     "theme": "skeleton",
     "top": [299, 300, 301, 302, 303, 304],
