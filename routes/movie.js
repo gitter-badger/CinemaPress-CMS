@@ -13,8 +13,10 @@ router.get('/:movie/:type?', function(req, res) {
     var time = decodeURIComponent(req.originalUrl);
     console.time(time);
 
-    req.params.movie = req.params.movie || '';
+    req.params.movie = '/' + req.params.movie || '';
     req.params.type  = req.params.type || 'single';
+
+    config.urls.prefix_id = config.urls.prefix_id || '/';
 
     var regexpId   = new RegExp(decodeURIComponent(config.urls.prefix_id) + '([0-9]{1,7})', 'ig');
     var id         = regexpId.exec(req.params.movie); id = (id) ? id[1] : '';
@@ -72,6 +74,46 @@ router.get('/:movie/:type?', function(req, res) {
                         "actors": function(callback) {
                             if (related.actors && config.related.indexOf('actors')+1) {
                                 getData.related('actor', related.actors, 'kinopoisk-vote-up', function(movies) {
+                                    callback(null, movies);
+                                });
+                            }
+                            else {
+                                callback(null, []);
+                            }
+                        },
+                        "country": function(callback) {
+                            if (related.country && config.related.indexOf('country')+1) {
+                                getData.related('country', related.country, 'kinopoisk-vote-up', function (movies) {
+                                    callback(null, movies);
+                                });
+                            }
+                            else {
+                                callback(null, []);
+                            }
+                        },
+                        "genre": function(callback) {
+                            if (related.genre && config.related.indexOf('genre')+1) {
+                                getData.related('genre', related.genre, 'kinopoisk-vote-up', function(movies) {
+                                    callback(null, movies);
+                                });
+                            }
+                            else {
+                                callback(null, []);
+                            }
+                        },
+                        "director": function(callback) {
+                            if (related.director && config.related.indexOf('directors')+1) {
+                                getData.related('director', related.director, 'kinopoisk-vote-up', function(movies) {
+                                    callback(null, movies);
+                                });
+                            }
+                            else {
+                                callback(null, []);
+                            }
+                        },
+                        "actor": function(callback) {
+                            if (related.actor && config.related.indexOf('actors')+1) {
+                                getData.related('actor', related.actor, 'kinopoisk-vote-up', function(movies) {
                                     callback(null, movies);
                                 });
                             }

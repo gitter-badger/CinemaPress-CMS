@@ -36,6 +36,7 @@ read THEME
 THEME=${THEME:='skeleton'}
 fi
 echo '------------------------------------------------------------------'
+echo ''
 
 #---------------------------
 #---------------------------
@@ -67,14 +68,14 @@ echo '---------------------'
 echo '-------install-------'
 echo '---------------------'
 wget -qO- https://deb.nodesource.com/setup_5.x | bash -
-apt-get -y install nginx proftpd-basic openssl mysql-client nodejs libltdl7 libodbc1 libpq5
+apt-get -y install nginx proftpd-basic openssl mysql-client nodejs memcached libltdl7 libodbc1 libpq5
 echo 'OK'
 echo '---------------------'
 echo '-------passwd--------'
 echo '---------------------'
 useradd ${USER} -m -U -s /bin/false
 passwd ${USER}
-rm -r /home/${USER}/*
+rm -rf /home/${USER}/*
 git clone https://github.com/CinemaPress/CinemaPress-CMS.git /home/${USER}
 chown -R ${USER}:www-data /home/${USER}/
 echo 'OK'
@@ -141,6 +142,7 @@ echo '-------restart-------'
 echo '---------------------'
 service nginx restart
 service proftpd restart
+service memcached restart
 echo "flush_all" | nc -q 2 localhost 11211
 echo 'OK'
 echo '---------------------'

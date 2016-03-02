@@ -3,7 +3,7 @@ module.exports = {
     "email": "support@example.com",
     "disqus": "films-online",
     "theme": "skeleton",
-    "top": [299, 300, 301, 302, 303, 304],
+    "top": [299, 300, 301, 302, 303, 304,305,306],
     "abuse": [462360],
     "social": {
         "vk": "http://vk.com/group",
