@@ -4,13 +4,38 @@
 #-------configuration-------
 #---------------------------
 
-echo '----------- DOMAIN URL -----------'
-read DOMAIN
-echo '----------- USER NAME ------------'
+echo ''
+echo '----------------------- USER NAME --------------------------------'
+if [ $1 ]; then
+USER=${1}
+echo ${USER}
+else
 read USER
-echo '----------- THEME (ted, barney, lily, marshall, ...) [default: skeleton] ------------'
+fi
+if ! [ ${USER} ]; then
+echo 'ERROR: Имя пользователя не может быть пустым.'
+exit
+fi
+echo '---------------------- DOMAIN URL --------------------------------'
+if [ $2 ]; then
+DOMAIN=${2}
+echo ${DOMAIN}
+else
+read DOMAIN
+fi
+if ! [ ${DOMAIN} ]; then
+echo 'ERROR: URL домена не может быть пустым.'
+exit
+fi
+echo '------------------------ THEME -----------------------------------'
+if [ $3 ]; then
+THEME=${3}
+echo ${THEME}
+else
 read THEME
 THEME=${THEME:='skeleton'}
+fi
+echo '------------------------------------------------------------------'
 
 #---------------------------
 #---------------------------
@@ -43,13 +68,13 @@ echo '-------install-------'
 echo '---------------------'
 wget -qO- https://deb.nodesource.com/setup_5.x | bash -
 apt-get -y install nginx proftpd-basic openssl mysql-client nodejs libltdl7 libodbc1 libpq5
-wget --no-check-certificate http://sphinxsearch.com/files/sphinxsearch_2.2.10-release-1~${VER}_amd64.deb && dpkg -i sphinxsearch* && rm -rf sphinxsearch_2.2.10-release-1~${VER}_amd64.deb
 echo 'OK'
 echo '---------------------'
 echo '-------passwd--------'
 echo '---------------------'
 useradd ${USER} -m -U -s /bin/false
 passwd ${USER}
+rm -r /home/${USER}/*
 git clone https://github.com/CinemaPress/CinemaPress-CMS.git /home/${USER}
 chown -R ${USER}:www-data /home/${USER}/
 echo 'OK'
@@ -88,6 +113,7 @@ echo 'OK'
 echo '---------------------'
 echo '-------sphinx--------'
 echo '---------------------'
+wget --no-check-certificate http://sphinxsearch.com/files/sphinxsearch_2.2.10-release-1~${VER}_amd64.deb && dpkg -i sphinxsearch* && rm -rf sphinxsearch_2.2.10-release-1~${VER}_amd64.deb
 rm -rf /etc/sphinxsearch/sphinx.conf
 ln -s /home/${USER}/config/sphinx.conf /etc/sphinxsearch/sphinx.conf
 sed -i "s/username/${USER}/g" /home/${USER}/config/sphinx.conf
@@ -104,6 +130,11 @@ echo '---------ftp---------'
 echo '---------------------'
 USERID=`id -u ${USER}`
 ftpasswd --passwd --file=/etc/proftpd/ftpd.passwd --name=${USER} --shell=/bin/false --home=/home/${USER} --uid=${USERID} --gid=${USERID}
+echo 'OK'
+echo '---------------------'
+echo '--------cron---------'
+echo '---------------------'
+echo "@reboot root cd /home/${USER}/ && npm start >> /home/${USER}/config/autostart.log 2>&1" >> /etc/crontab
 echo 'OK'
 echo '---------------------'
 echo '-------restart-------'
