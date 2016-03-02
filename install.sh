@@ -107,9 +107,9 @@ echo '-------config--------'
 echo '---------------------'
 if [ "$THEME" != "skeleton" ]; then
 git clone https://github.com/CinemaPress/Theme-${THEME}.git /home/${USER}/themes/${THEME}
-sed -i "s/skeleton/${THEME}/g" /home/${USER}/config/config.js
+sed -i "s/\"theme\": \".*\",/\"theme\": \"${THEME}\",/g" /home/${USER}/config/config.js
 fi
-sed -i "s/example.com/${DOMAIN}/g" /home/${USER}/config/config.js
+sed -i "s/\"domain\": \".*\",/\"domain\": \"${DOMAIN}\",/g" /home/${USER}/config/config.js
 echo 'OK'
 echo '---------------------'
 echo '-------sphinx--------'
