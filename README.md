@@ -24,6 +24,25 @@ barney
 ------------------------------------------------------------------
 ```
 
+### Установка темы оформления
+
+- [Barney (kinogo.cc)](https://github.com/CinemaPress/Theme-Barney)
+```
+sh theme.sh barney
+```
+- [Ted (kinogb.net)](https://github.com/CinemaPress/Theme-Ted)
+```
+sh theme.sh ted
+```
+- [Lily (kinokong.net)](https://github.com/CinemaPress/Theme-Lily)
+```
+sh theme.sh lily
+```
+- [Marshall (zerx.cc)](https://github.com/CinemaPress/Theme-Marshall)
+```
+sh theme.sh marshall
+```
+
 ## Конфигурация
 Файл конфигурации находится *config/config.js*
 
@@ -164,12 +183,13 @@ barney
     - **movie_url** = "\[prefix_id\]\[separator\]\[title_ru\]\[separator\]\[title_en\]"
 
 
-**prefix_id** - обязательное поле содержащее ID фильма;
-**separator** - разделитель между полями. Требуется для того, чтобы при отсутствии одного из полей (title_ru, title_en, ...) не было повторений разделителей в URL "/id298--Avatar" или "/id298-Аватар-"
-**title_ru** - русское название фильма
-**title_en** - оригинальное название фильма
-**year** - год фильма
-**country** - название одной из стран
-**genre** - название одного из жанров
-**director** - имя и фамилия режиссера
-**actor** - имя и фамилия актера
+
+- **prefix_id** - обязательное поле содержащее ID фильма;
+- **separator** - разделитель между полями. Требуется для того, чтобы при отсутствии одного из полей (title_ru, title_en, ...) не было повторений разделителей в URL "/id298--Avatar" или "/id298-Аватар-"
+- **title_ru** - русское название фильма
+- **title_en** - оригинальное название фильма
+- **year** - год фильма
+- **country** - название одной из стран
+- **genre** - название одного из жанров
+- **director** - имя и фамилия режиссера
+- **actor** - имя и фамилия актера
