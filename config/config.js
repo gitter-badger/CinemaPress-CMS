@@ -16,7 +16,7 @@ module.exports = {
         "category": 30,
         "top_category": 10,
         "related": 5,
-        "sitemap": 20
+        "sitemap": 10000
     },
     "related": "countries,genres,directors,actors,year",
     "titles": {

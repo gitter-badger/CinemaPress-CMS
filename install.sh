@@ -18,7 +18,7 @@ THEME=${THEME:='skeleton'}
 echo '---------------------'
 echo '-------update--------'
 echo '---------------------'
-apt-get -y update && apt-get -y install wget curl nano htop sudo lsb-release ca-certificates
+apt-get -y update && apt-get -y install wget curl nano htop sudo lsb-release ca-certificates git-core
 VER=`lsb_release -cs`
 echo 'OK'
 echo '---------------------'
@@ -50,7 +50,7 @@ echo '-------passwd--------'
 echo '---------------------'
 useradd ${USER} -m -U -s /bin/false
 passwd ${USER}
-cp -r ./* /home/${USER}/
+git clone https://github.com/CinemaPress/CinemaPress-CMS.git /home/${USER}
 chown -R ${USER}:www-data /home/${USER}/
 echo 'OK'
 echo '---------------------'
@@ -80,7 +80,7 @@ echo '---------------------'
 echo '-------config--------'
 echo '---------------------'
 if [ "$THEME" != "skeleton" ]; then
-git clone https://github.com/CinemaPress/Theme-${THEME}.git ./themes/${THEME}
+git clone https://github.com/CinemaPress/Theme-${THEME}.git /home/${USER}/themes/${THEME}
 sed -i "s/skeleton/${THEME}/g" /home/${USER}/config/config.js
 fi
 sed -i "s/example.com/${DOMAIN}/g" /home/${USER}/config/config.js
