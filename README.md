@@ -30,25 +30,25 @@ barney
 ```
 sh theme.sh barney
 ```
-<img src="https://raw.githubusercontent.com/CinemaPress/Theme-Barney/master/screenshot.jpg" width="300">
+<a href="https://github.com/CinemaPress/Theme-Barney"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Barney/master/screenshot.jpg" width="400"></a>
 ---
 - [Ted (kinogb.net)](https://github.com/CinemaPress/Theme-Ted)
 ```
 sh theme.sh ted
 ```
-<img src="https://raw.githubusercontent.com/CinemaPress/Theme-Ted/master/screenshot.jpg" width="300">
+<a href="https://github.com/CinemaPress/Theme-Ted"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Ted/master/screenshot.jpg" width="400"></a>
 ---
 - [Lily (kinokong.net)](https://github.com/CinemaPress/Theme-Lily)
 ```
 sh theme.sh lily
 ```
-<img src="https://raw.githubusercontent.com/CinemaPress/Theme-Lily/master/screenshot.jpg" width="300">
+<a href="https://github.com/CinemaPress/Theme-Lily"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Lily/master/screenshot.jpg" width="400"></a>
 ---
 - [Marshall (zerx.cc)](https://github.com/CinemaPress/Theme-Marshall)
 ```
 sh theme.sh marshall
 ```
-<img src="https://raw.githubusercontent.com/CinemaPress/Theme-Marshall/master/screenshot.jpg" width="300">
+<a href="https://github.com/CinemaPress/Theme-Marshall"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Marshall/master/screenshot.jpg" width="400"></a>
 
 ## Конфигурация
 Файл конфигурации находится *config/config.js*
