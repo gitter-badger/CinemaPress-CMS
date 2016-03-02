@@ -1,2 +1,4 @@
 Thumbs.db
 .idea/
+themes/*
+!themes/.gitkeep

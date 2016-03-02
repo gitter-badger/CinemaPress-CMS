@@ -8,6 +8,9 @@ echo '----------- DOMAIN URL -----------'
 read DOMAIN
 echo '----------- USER NAME ------------'
 read USER
+echo '----------- THEME (ted, barney, lily, marshall, ...) [default: skeleton] ------------'
+read THEME
+THEME=${THEME:='skeleton'}
 
 #---------------------------
 #---------------------------
@@ -76,6 +79,10 @@ echo 'OK'
 echo '---------------------'
 echo '-------config--------'
 echo '---------------------'
+if [ "$THEME" != "skeleton" ]; then
+git clone https://github.com/CinemaPress/Theme-${THEME}.git ./themes/${THEME}
+sed -i "s/skeleton/${THEME}/g" /home/${USER}/config/config.js
+fi
 sed -i "s/example.com/${DOMAIN}/g" /home/${USER}/config/config.js
 echo 'OK'
 echo '---------------------'
