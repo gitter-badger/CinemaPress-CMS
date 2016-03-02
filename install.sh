@@ -38,6 +38,8 @@ fi
 echo '------------------------------------------------------------------'
 echo ''
 
+sleep 3
+
 #---------------------------
 #---------------------------
 
@@ -75,7 +77,7 @@ echo '-------passwd--------'
 echo '---------------------'
 useradd ${USER} -m -U -s /bin/false
 # passwd ${USER}
-rm -rf /home/${USER}/.[^.] /home/${USER}/.??*
+rm -rf /home/${USER}/.??*
 git clone https://github.com/CinemaPress/CinemaPress-CMS.git /home/${USER}
 chown -R ${USER}:www-data /home/${USER}/
 echo 'OK'
