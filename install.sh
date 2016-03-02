@@ -74,8 +74,8 @@ echo '---------------------'
 echo '-------passwd--------'
 echo '---------------------'
 useradd ${USER} -m -U -s /bin/false
-passwd ${USER}
-rm -rf /home/${USER}/*
+# passwd ${USER}
+rm -rf /home/${USER}/.[^.] /home/${USER}/.??*
 git clone https://github.com/CinemaPress/CinemaPress-CMS.git /home/${USER}
 chown -R ${USER}:www-data /home/${USER}/
 echo 'OK'
@@ -84,8 +84,8 @@ echo '--------admin--------'
 echo '---------------------'
 echo 'Large password 0-10 symbols'
 echo '---------------------'
-OPENSSL=`openssl passwd`
-echo "${USER}:${OPENSSL}" >> /etc/nginx/nginx_pass
+# OPENSSL=`openssl passwd`
+# echo "${USER}:${OPENSSL}" >> /etc/nginx/nginx_pass
 echo 'OK'
 echo '---------------------'
 echo '--------nginx--------'
@@ -101,6 +101,7 @@ sed -i "s/username/${USER}/g" /home/${USER}/config/nginx.conf
 sed -i "s/user  nginx;/user  www-data;/g" /etc/nginx/nginx.conf
 sed -i "s/server_names_hash_bucket_size 64;//g" /etc/nginx/nginx.conf
 sed -i "s/http {/http {\n    server_names_hash_bucket_size 64;/g" /etc/nginx/nginx.conf
+sed -i "s/#gzip/gzip/g" /etc/nginx/nginx.conf
 echo 'OK'
 echo '---------------------'
 echo '-------config--------'
