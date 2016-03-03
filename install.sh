@@ -91,7 +91,7 @@ if [ "$THEME" != "skeleton" ]; then
 git clone https://github.com/CinemaPress/Theme-${THEME}.git /home/${DOMAIN}/themes/${THEME}
 sed -i "s/\"theme\": \".*\",/\"theme\": \"${THEME}\",/g" /home/${DOMAIN}/config/config.js
 fi
-sed -i "s/\"domain\": \".*\",/\"domain\": \"${DOMAIN}\",/g" /home/${DOMAIN}/config/config.js
+sed -i "s/example.com/${DOMAIN}/g" /home/${DOMAIN}/config/config.js
 echo 'OK'
 echo '---------------------'
 echo '-------sphinx--------'
