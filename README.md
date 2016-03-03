@@ -8,15 +8,13 @@
 Работает на Debian 7,8 (64-bit)
 ```
 wget https://git.io/v2XAV -qO install.sh
-sh install.sh [username] [domain] [theme]
+sh install.sh [domain] [theme]
 ```
 
 ##### Пример:
 ```
-~# sh install.sh myusername mydomain.com barney
+~# sh install.sh mydomain.com barney
 
------------------------ USER NAME --------------------------------
-myusername
 ---------------------- DOMAIN URL --------------------------------
 mydomain.com
 ------------------------ THEME -----------------------------------
