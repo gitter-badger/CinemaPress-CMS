@@ -1,4 +1,6 @@
 # CinemaPress CMS
+
+[![Join the chat at https://gitter.im/CinemaPress/CinemaPress-CMS](https://badges.gitter.im/CinemaPress/CinemaPress-CMS.svg)](https://gitter.im/CinemaPress/CinemaPress-CMS?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
  :movie_camera: Система управления самообновляемым кино-сайтом.
  
 # CinemaPress DataBase
